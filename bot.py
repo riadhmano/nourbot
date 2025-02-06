@@ -6,6 +6,7 @@ from PIL import Image, ImageDraw, ImageFont
 import io
 import asyncio
 
+
 TOKEN = "7841909549:AAE-IP8TXNsmHVZmuXBjb6CEiMvxaljJNz8"
 
 # إعدادات البوت
