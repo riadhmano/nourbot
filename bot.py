@@ -1,11 +1,10 @@
 import logging
 from aiogram import Bot, Dispatcher, types
-from aiogram.filters import Command
 from aiogram.types import Message, BufferedInputFile, InputMediaPhoto
 from PIL import Image, ImageDraw, ImageFont
 import io
 import asyncio
-
+import os  # لإضافة دعم المتغيرات البيئية
 
 TOKEN = "7841909549:AAE-IP8TXNsmHVZmuXBjb6CEiMvxaljJNz8"
 
@@ -17,6 +16,9 @@ dp = Dispatcher()
 user_images = {}
 # تخزين القناة التي يريد المستخدم النشر فيها
 user_channels = {}
+
+# تحديد المنفذ
+PORT = os.getenv('PORT', 5000)  # جلب المنفذ من البيئة إذا كان موجودًا، أو استخدام 5000 كإفتراضي
 
 # استقبال الصور من المستخدم
 @dp.message(lambda message: message.photo)
@@ -85,7 +87,6 @@ async def handle_text(message: Message):
     user_images[user_id] = modified_images
 
     await message.answer("✅ تم تعديل الصور! الآن، أرسل اسم القناة مثل: `@channel_username` لنشر الصور.")
-
 
 # استقبال اسم القناة ونشر الصور إليها
 @dp.message(lambda message: message.text.startswith("@"))
