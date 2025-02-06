@@ -1,10 +1,4 @@
-<<<<<<< HEAD
 aiogram
 pillow
 Flask
-=======
-aiogram
-pillow
-Flask
->>>>>>> bf53e6ab635a2468c528e0c456aa5abddab7e333
 requests
